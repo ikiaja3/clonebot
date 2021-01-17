@@ -116,7 +116,7 @@ def cancelClone(update, context):
 
 def main():
     LOGGER.info("Bot Started!")
-    clone_handler = CommandHandler('clone', cloneNode)
+    clone_handler = CommandHandler('kopi', cloneNode)
     start_handler = CommandHandler('start', start)
     help_handler = CommandHandler('help', helper)
     log_handler = CommandHandler('logs', sendLogs)
