@@ -284,7 +284,7 @@ class GoogleDriveHelper:
                    f' ({get_readable_file_size(self.transferred_size)})'
             if INDEX_URL:
                 url = requests.utils.requote_uri(f'{INDEX_URL}/{meta.get("name")}/')
-                msg += f' | <a href="{url}"> Index URL</a>'
+                msg += f' | <a href="{url}"> LINK Download</a>'
         else:
             try:
                 file = self.check_file_exists(meta, self.gparentid, self.__service)
@@ -306,7 +306,7 @@ class GoogleDriveHelper:
                 msg += f' ({get_readable_file_size(int(meta.get("size")))}) '
                 if INDEX_URL:
                     url = requests.utils.requote_uri(f'{INDEX_URL}/{file.get("name")}')
-                    msg += f' | <a href="{url}"> Index URL</a>'
+                    msg += f' | <a href="{url}"> LINK Download</a>'
             except TypeError:
                 pass
         return msg
