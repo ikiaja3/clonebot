@@ -9,25 +9,25 @@ from bot.clone_status import CloneStatus
 from bot.msg_utils import deleteMessage, sendMessage
 import time
 
-REPO_LINK = "https://github.com/jagrit007/Telegram-CloneBot"
+REPO_LINK = "https://stream.iki.my.id"
 # Soon to be used for direct updates from within the bot.
 
 @run_async
 def start(update, context):
-    sendMessage("Hello! Please send me a Google Drive Shareable Link to Clone to your Drive!" \
-        "\nSend /help for checking all available commands.",
+    sendMessage("Halo! Kirimkan saya Tautan Google Drive yang Dapat Dibagikan untuk Mengkloning ke Drive!" \
+        "\nKetik /help untuk memeriksa semua perintah yang tersedia.",
     context.bot, update, 'Markdown')
     # ;-;
 
 @run_async
 def helper(update, context):
-    sendMessage("Here are the available commands of the bot\n\n" \
+    sendMessage("Berikut adalah perintah bot yang tersedia\n\n" \
         "*Usage:* `/clone <link> [DESTINATION_ID]`\n*Example:* \n1. `/clone https://drive.google.com/drive/u/1/folders/0AO-ISIXXXXXXXXXXXX`\n2. `/clone 0AO-ISIXXXXXXXXXXXX`" \
-            "\n*DESTIONATION_ID* is optional. It can be either link or ID to where you wish to store a particular clone." \
-            "\n\nYou can also *ignore folders* from clone process by doing the following:\n" \
-                "`/clone <FOLDER_ID> [DESTINATION] [id1,id2,id3]`\n In this example: id1, id2 and id3 would get ignored from cloning\nDo not use <> or [] in actual message." \
-                    "*Make sure to not put any space between commas (,).*\n" \
-                        f"Source of this bot: [GitHub]({REPO_LINK})", context.bot, update, 'Markdown')
+            "\n*DESTIONATION_ID* bersifat opsional. Ini bisa berupa tautan atau ID ke tempat Anda ingin menyimpan klon tertentu." \
+            "\n\nKamu juga bisa*mengabaikan folder* dari proses klon dengan melakukan hal berikut:\n" \
+                "`/clone <FOLDER_ID> [DESTINATION] [id1,id2,id3]`\n Dalam contoh ini: id1, id2 dan id3 akan diabaikan dari kloning\nDo not use <> or [] dalam pesan yang sebenarnya." \
+                    "*Pastikan untuk tidak memberi spasi di antara koma (,).*\n" \
+                        f"Kunjungi Web: [KLIK AKU]({REPO_LINK})", context.bot, update, 'Markdown')
 
 
 @run_async
@@ -62,7 +62,7 @@ def cloneNode(update,context):
         status_class.set_status(True)
         sendMessage(result, context.bot, update)
     else:
-        sendMessage("Please Provide a Google Drive Shared Link to Clone.", bot, update)
+        sendMessage("Harap Berikan Tautan Google Drive Publik untuk digandakan.", bot, update)
 
 
 @run_async
@@ -105,7 +105,7 @@ def cancelClone(update, context):
     if len(args) > 1:
         uid = args[1]
     else:
-        sendMessage("Please mention the ID of clone you want to cancel.", context.bot, update)
+        sendMessage("Sebutkan ID klon yang ingin Anda batalkan.", context.bot, update)
         return
     
     cloneObj = CLONE_DICT[uid]
